@@ -44,6 +44,7 @@ export type StatutLieu = 'à appeler' | 'contacté' | 'visite prévue' | 'visite
 
 export interface Venue {
   id: string
+  ordre: number
   nom: string
   commune: string
   distanceMin: number
