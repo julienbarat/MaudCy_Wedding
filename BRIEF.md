@@ -150,13 +150,14 @@ Pré-remplir avec ces lieux (fourchettes de prix estimées, pas des tarifs commu
 
 1. **Domaine de la Grangette**, Montagnac, 45 min, domaine, 180 assis, 96 couchages, pas d'eau, 3 500–16 000 €, 04 67 24 50 92, domainedelagrangette.fr
 2. **Château Rieutort**, Saint-Pargoire, 45 min, domaine, 200 assis, ~60 couchages, bord de fleuve (l'Hérault), 8 400–20 000 €, chateau-rieutort.fr
-3. **Domaine de Combelles**, Le Monastère (Rodez, Aveyron), ~115 min, domaine, 200 assis, gros hébergement en chalets/cottages, pas d'eau, 2 000–10 000 €, 05 65 67 32 79, combelles-aveyron.fr — le plus loin des lieux retenus, mais capacité d'hébergement rare
-4. **Mas du Versadou**, Saint-Gilles (Camargue, Gard), ~65 min, mas, 150 assis, ~60 couchages, bord d'étang, prix non communiqué, 06 84 77 21 74, masduversadou.fr
-5. **Camping Le Val d'Hérault**, Brissac, 40 min, camping, capacité à vérifier, bord de rivière, 4 000–8 000 €, 04 67 73 72 29, camping-levaldherault.com
-6. **Parc Sports & Loisirs Brissac-Ganges**, Brissac, 50 min, résidence, jusqu'à 200 assis, ~150 couchages en appartements, pas d'eau directe, 5 000–10 000 €, 04 67 69 99 18, psl-cevennes.com
-7. **Domaine d'Anglas**, Brissac, 50 min, camping, capacité à vérifier, bord de rivière, 4 000–8 000 €, 04 67 73 70 18, domaine-anglas.com (l'ancien site camping-anglas.com ne répond plus)
-8. **Domaine de Blancardy**, Moulès-et-Baucels, 55 min, mas, capacité à vérifier, pas d'eau directe, 5 000–9 000 €, 04 67 73 94 94, blancardy.fr
-9. **Château de Linsolas**, Villeneuve-lès-Avignon (Gard), 70 min, domaine, 150 assis (un peu juste pour 180), 46 couchages, piscine chauffée, 4 500–9 000 €, chateau-de-linsolas.fr — le plus cher, à garder en solution de repli
+3. **Le Sauvage — Domaine en Camargue**, Saintes-Maries-de-la-Mer (Bouches-du-Rhône), ~85 min, domaine, 300 assis, 121 couchages (le meilleur match pour loger 90 à 110 personnes), bord de mer/étangs, prix sur devis, 04 90 85 28 41, domainelesauvage.com — une fiche pro le donne comme ne louant plus ses espaces, à vérifier en priorité à l'appel
+4. **Domaine de Combelles**, Le Monastère (Rodez, Aveyron), ~115 min, domaine, 200 assis, gros hébergement en chalets/cottages, pas d'eau, 2 000–10 000 €, 05 65 67 32 79, combelles-aveyron.fr — le plus loin des lieux retenus, mais capacité d'hébergement rare
+5. **Mas du Versadou**, Saint-Gilles (Camargue, Gard), ~65 min, mas, 150 assis, ~60 couchages, bord d'étang, prix non communiqué, 06 84 77 21 74, masduversadou.fr
+6. **Camping Le Val d'Hérault**, Brissac, 40 min, camping, capacité à vérifier, bord de rivière, 4 000–8 000 €, 04 67 73 72 29, camping-levaldherault.com
+7. **Parc Sports & Loisirs Brissac-Ganges**, Brissac, 50 min, résidence, jusqu'à 200 assis, ~150 couchages en appartements, pas d'eau directe, 5 000–10 000 €, 04 67 69 99 18, psl-cevennes.com
+8. **Domaine d'Anglas**, Brissac, 50 min, camping, capacité à vérifier, bord de rivière, 4 000–8 000 €, 04 67 73 70 18, domaine-anglas.com (l'ancien site camping-anglas.com ne répond plus)
+9. **Domaine de Blancardy**, Moulès-et-Baucels, 55 min, mas, capacité à vérifier, pas d'eau directe, 5 000–9 000 €, 04 67 73 94 94, blancardy.fr
+10. **Château de Linsolas**, Villeneuve-lès-Avignon (Gard), 70 min, domaine, 150 assis (un peu juste pour 180), 46 couchages, piscine chauffée, 4 500–9 000 €, chateau-de-linsolas.fr — le plus cher, à garder en solution de repli
 
 ### Repas
 

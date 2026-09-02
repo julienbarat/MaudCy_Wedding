@@ -56,6 +56,38 @@ function seedVenues(): Venue[] {
     {
       id: id('venue'),
       ordre: 2,
+      nom: 'Le Sauvage — Domaine en Camargue',
+      commune: 'Saintes-Maries-de-la-Mer (Bouches-du-Rhône)',
+      distanceMin: 85,
+      type: 'domaine',
+      capaciteAssise: 300,
+      couchages: 121,
+      bordEau: 'lac',
+      prixMin: null,
+      prixMax: null,
+      telephone: '04 90 85 28 41',
+      siteWeb: 'domainelesauvage.com',
+      avantages: [
+        '121 couchages sur place (44 chambres) — le meilleur match avec le besoin de 90 à 110 personnes logées',
+        'Domaine de 2000 ha entre mer, étangs et pinède, avec plage sauvage',
+        'Capacité assise jusqu\'à 300, debout jusqu\'à 500-750',
+      ],
+      inconvenients: [
+        'Un des plus loin de Castelnau-le-Lez (~1h20-1h30)',
+        "Prix uniquement sur devis",
+        "Une fiche pro (ABC Salles) le donne comme ne louant plus ses espaces — à vérifier en priorité à l'appel",
+      ],
+      statut: 'à appeler',
+      notes: "Trouvé en élargissant la recherche à 150 km, ajouté sur demande. Bord de mer/étangs plutôt qu'un lac au sens strict — pas d'option plus précise dans les catégories.",
+      photos: [
+        'https://images.kactus.com/64ovd7w962s903fhl4p1xlvhr2u6?compress=true&fm=auto&h=480&q=80&w=580&s=6559692a67e9c1549ff7536ead768c46',
+        'https://images.kactus.com/6561hfd512nd6l9umhuo4xkbbzuk?compress=true&fm=auto&h=240&q=70&w=360&s=bec5e1a2373b874bbe73996d09a1f22c',
+        'https://images.kactus.com/mkiscafa49ht48651qhymgokgdtk?compress=true&fm=auto&h=240&q=70&w=360&s=7f60fecaf2c46f919f3f2a7ddf14cc7d',
+      ],
+    },
+    {
+      id: id('venue'),
+      ordre: 3,
       nom: 'Domaine de Combelles',
       commune: 'Le Monastère (Rodez, Aveyron)',
       distanceMin: 115,
@@ -78,7 +110,7 @@ function seedVenues(): Venue[] {
     },
     {
       id: id('venue'),
-      ordre: 3,
+      ordre: 4,
       nom: 'Mas du Versadou',
       commune: 'Saint-Gilles (Camargue, Gard)',
       distanceMin: 65,
@@ -102,7 +134,7 @@ function seedVenues(): Venue[] {
     },
     {
       id: id('venue'),
-      ordre: 4,
+      ordre: 5,
       nom: "Camping Le Val d'Hérault",
       commune: 'Brissac',
       distanceMin: 40,
@@ -126,7 +158,7 @@ function seedVenues(): Venue[] {
     },
     {
       id: id('venue'),
-      ordre: 5,
+      ordre: 6,
       nom: 'Parc Sports & Loisirs Brissac-Ganges',
       commune: 'Brissac',
       distanceMin: 50,
@@ -149,7 +181,7 @@ function seedVenues(): Venue[] {
     },
     {
       id: id('venue'),
-      ordre: 6,
+      ordre: 7,
       nom: "Domaine d'Anglas",
       commune: 'Brissac',
       distanceMin: 50,
@@ -169,7 +201,7 @@ function seedVenues(): Venue[] {
     },
     {
       id: id('venue'),
-      ordre: 7,
+      ordre: 8,
       nom: 'Domaine de Blancardy',
       commune: 'Moulès-et-Baucels',
       distanceMin: 55,
@@ -189,7 +221,7 @@ function seedVenues(): Venue[] {
     },
     {
       id: id('venue'),
-      ordre: 8,
+      ordre: 9,
       nom: 'Château de Linsolas',
       commune: 'Villeneuve-lès-Avignon (Gard)',
       distanceMin: 70,
