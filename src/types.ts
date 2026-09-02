@@ -22,6 +22,7 @@ export interface Guest {
   nuitSamedi: boolean
   nuitDimanche: boolean
   logeSurPlace: boolean
+  table: string | null
   notes: string
   custom: Record<string, unknown>
 }
@@ -93,7 +94,30 @@ export interface BudgetItem {
   poste: string
   montantEstime: number | null
   montantReel: number | null
+  acompteVerse: number | null
+  dateEcheanceSolde: string
+  soldeVerse: boolean
   notes: string
+}
+
+export interface Table {
+  id: string
+  nom: string
+  capacite: number | null
+  notes: string
+}
+
+export type JourTimeline = 'samedi' | 'dimanche' | 'lundi'
+
+export interface TimelineEntry {
+  id: string
+  jour: JourTimeline
+  heureDebut: string
+  heureFin: string
+  titre: string
+  lieu: string
+  notes: string
+  ordre: number
 }
 
 export interface Task {
@@ -125,6 +149,8 @@ export interface WeddingData {
   meals: Meal[]
   vendors: Vendor[]
   budget: BudgetItem[]
+  tables: Table[]
+  timeline: TimelineEntry[]
   tasks: Task[]
   ideas: Idea[]
 }

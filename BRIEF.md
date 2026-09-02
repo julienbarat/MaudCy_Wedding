@@ -45,6 +45,8 @@ Un mot de passe unique partagé, stocké en variable d'environnement, vérifié 
   meals: [...],
   vendors: [...],
   budget: [...],
+  tables: [...],
+  timeline: [...],
   tasks: [...],
   ideas: [...]
 }
@@ -52,7 +54,7 @@ Un mot de passe unique partagé, stocké en variable d'environnement, vérifié 
 
 ### `guests` — invités
 
-Champs fixes : `id`, `prenom`, `nom`, `foyer`, `categorie` (famille marié / famille mariée / amis / travail / autre), `statut` (à inviter / invité / confirmé / décliné), `estEnfant`, `age`, `email`, `telephone`, `regime`, `samediMidi`, `samediSoir`, `dimancheBrunch`, `dimancheSoir`, `lundiMidi`, `nuitVendredi`, `nuitSamedi`, `nuitDimanche`, `logeSurPlace`, `notes`, `custom` (objet libre).
+Champs fixes : `id`, `prenom`, `nom`, `foyer`, `categorie` (famille marié / famille mariée / amis / travail / autre), `statut` (à inviter / invité / confirmé / décliné), `estEnfant`, `age`, `email`, `telephone`, `regime`, `samediMidi`, `samediSoir`, `dimancheBrunch`, `dimancheSoir`, `lundiMidi`, `nuitVendredi`, `nuitSamedi`, `nuitDimanche`, `logeSurPlace`, `table` (identifiant de table, voir `tables` ci-dessous), `notes`, `custom` (objet libre).
 
 ### `guestFields` — colonnes personnalisées
 
@@ -79,9 +81,23 @@ Catégories pré-remplies, sans société : traiteur, DJ / musique, photographe,
 
 ### `budget`
 
-`poste`, `montantEstime`, `montantReel`, `notes`. Rien de plus.
+`poste`, `montantEstime`, `montantReel`, `acompteVerse`, `dateEcheanceSolde`, `soldeVerse`, `notes`.
+
+Les trois champs de paiement sont optionnels et ne concernent que les postes où un acompte a été versé (lieu, traiteur, prestataires...). `dateEcheanceSolde` sert à faire remonter une alerte sur le tableau de bord quand le solde approche.
 
 Postes pré-remplis : lieu, hébergement, traiteur, boissons, DJ / musique, photo et vidéo, fleurs et décoration, location mobilier, tenues, alliances, papeterie, transport, divers.
+
+### `tables` — plan de table
+
+`id`, `nom` (ex. « Table 1 », « Table des mariés »), `capacite`, `notes`.
+
+Les invités ne sont **pas** dupliqués ici : chaque invité pointe vers une table via `guests[].table` (l'identifiant de la table, ou vide si pas encore placé). La page Plan de table n'est qu'une vue groupée par table sur la liste des invités confirmés, avec réaffectation par glisser-déposer ou sélection.
+
+### `timeline` — planning horaire du jour J
+
+`id`, `jour` (samedi / dimanche / lundi), `heureDebut`, `heureFin`, `titre`, `lieu`, `notes`, `ordre`.
+
+Distinct du rétroplanning (`tasks`) : ceci décrit le déroulé heure par heure du week-end lui-même (arrivée des invités, cérémonie, cocktail, dîner, soirée...), pas les tâches à faire en amont.
 
 ### `tasks` — rétroplanning
 
@@ -145,9 +161,19 @@ Liste groupée par catégorie, statut de chaque contact, montant du devis. Expor
 
 ### Budget
 
-Tableau simple : poste, estimé, réel, écart. Totaux en bas. Export Excel.
+Tableau simple : poste, estimé, réel, écart, acompte versé, solde dû et sa date d'échéance. Totaux en bas. Les soldes dont l'échéance approche remontent en alerte sur le tableau de bord. Export Excel.
 
-### Planning
+### Plan de table
+
+Vue par table : chaque table affiche sa capacité, le nombre d'invités confirmés déjà placés et la liste de ces invités. Une colonne « non placés » regroupe les invités confirmés sans table. Réaffectation d'un invité à une table par sélection (glisser-déposer si simple à faire, sinon une liste déroulante suffit). Ajout, renommage, suppression de table. Alerte visuelle si une table dépasse sa capacité.
+
+Purement dérivé de la liste des invités : aucune saisie de nom ici, seulement le champ `table` de chaque invité.
+
+### Planning du jour J
+
+Déroulé horaire du week-end, un bloc par jour (samedi, dimanche, lundi), trié par heure. Chaque ligne : heure de début, heure de fin optionnelle, titre, lieu, notes. Ajout, modification, suppression, réordonnancement libres. Rien de pré-rempli, à construire au fur et à mesure que les prestataires et horaires se précisent.
+
+### Rétroplanning
 
 Liste chronologique groupée par période, avec cases à cocher. Les échéances passées non faites remontent en alerte. Ajout, modification et suppression libres.
 
@@ -182,5 +208,6 @@ Responsive : le tableau des invités doit être utilisable sur téléphone, au m
 3. Page invités : tableau éditable, colonnes personnalisées, import et export Excel
 4. Tableau de bord et calculs de présence et de couchages
 5. Page lieux et filtres
-6. Pages repas, prestataires, budget, planning, idées
-7. Mot de passe et déploiement Vercel
+6. Pages repas, prestataires, budget (avec échéancier de paiement), rétroplanning, idées
+7. Plan de table et planning du jour J
+8. Mot de passe et déploiement Vercel

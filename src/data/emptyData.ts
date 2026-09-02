@@ -8,6 +8,8 @@ export function emptyData(): WeddingData {
     meals: [],
     vendors: [],
     budget: [],
+    tables: [],
+    timeline: [],
     tasks: [],
     ideas: [],
   }
