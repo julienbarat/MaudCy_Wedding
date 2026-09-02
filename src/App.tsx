@@ -1,53 +1,37 @@
-import { useEffect, useState } from 'react'
-import { loadData, saveData } from './data/client'
-import { emptyData } from './data/emptyData'
-import type { WeddingData } from './types'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout'
+import { DataProvider } from './data/DataContext'
+import Budget from './pages/Budget'
+import Dashboard from './pages/Dashboard'
+import Guests from './pages/Guests'
+import Ideas from './pages/Ideas'
+import Meals from './pages/Meals'
+import Tasks from './pages/Tasks'
+import TablesPage from './pages/TablesPage'
+import Timeline from './pages/Timeline'
+import Vendors from './pages/Vendors'
+import Venues from './pages/Venues'
 
 function App() {
-  const [data, setData] = useState<WeddingData | null>(null)
-  const [statut, setStatut] = useState<'chargement' | 'prêt' | 'enregistrement' | 'enregistré' | 'erreur'>('chargement')
-
-  useEffect(() => {
-    loadData()
-      .then((d) => {
-        setData(d)
-        setStatut('prêt')
-      })
-      .catch(() => {
-        setData(emptyData())
-        setStatut('prêt')
-      })
-  }, [])
-
-  async function tester() {
-    if (!data) return
-    setStatut('enregistrement')
-    try {
-      await saveData(data)
-      setStatut('enregistré')
-    } catch {
-      setStatut('erreur')
-    }
-  }
-
   return (
-    <main className="mx-auto max-w-2xl px-6 py-16">
-      <h1 className="text-3xl">Organisation du mariage</h1>
-      <p className="mt-2 text-sm">
-        Squelette du projet — couche <code>loadData()</code> / <code>saveData()</code> en place.
-      </p>
-      <div className="mt-8 rounded border border-[var(--color-border)] bg-white p-4 text-sm">
-        <p>Statut : {statut}</p>
-        {data && <p className="mt-1">Tableaux chargés : {Object.keys(data).join(', ')}</p>}
-        <button
-          type="button"
-          onClick={tester}
-          className="mt-4 rounded bg-[var(--color-garrigue)] px-4 py-2 text-white hover:bg-[var(--color-garrigue-dark)]"
-        >
-          Tester l'enregistrement
-        </button>
-      </div>
-    </main>
+    <DataProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="invites" element={<Guests />} />
+            <Route path="lieux" element={<Venues />} />
+            <Route path="repas" element={<Meals />} />
+            <Route path="prestataires" element={<Vendors />} />
+            <Route path="budget" element={<Budget />} />
+            <Route path="plan-de-table" element={<TablesPage />} />
+            <Route path="planning-jour-j" element={<Timeline />} />
+            <Route path="retroplanning" element={<Tasks />} />
+            <Route path="idees" element={<Ideas />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </DataProvider>
   )
 }
 
