@@ -28,28 +28,29 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-[var(--color-border)] bg-[var(--color-stone-dark)]">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-3">
-          <h1 className="text-xl">Notre mariage</h1>
-          {label && (
+      <header className="sticky top-0 z-10 border-b border-[var(--color-border-soft)] bg-[var(--color-stone)]/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-5 pt-4">
+          <h1 className="text-2xl">Notre mariage</h1>
+          <span
+            className={`flex items-center gap-1.5 text-xs transition-opacity ${label ? 'opacity-100' : 'opacity-0'} ${status === 'erreur' ? 'text-[var(--color-vine)]' : 'text-[var(--color-text-soft)]'}`}
+          >
             <span
-              className={`text-xs ${status === 'erreur' ? 'text-[var(--color-vine)]' : 'text-[var(--color-text)]'}`}
-            >
-              {label}
-            </span>
-          )}
+              className={`h-1.5 w-1.5 rounded-full ${status === 'erreur' ? 'bg-[var(--color-vine)]' : status === 'enregistrement' ? 'bg-amber-500' : 'bg-[var(--color-garrigue)]'}`}
+            />
+            {label || 'Enregistré'}
+          </span>
         </div>
-        <nav className="mx-auto flex max-w-7xl flex-wrap gap-1 px-4 pb-2 text-sm">
+        <nav className="mx-auto flex max-w-7xl flex-wrap gap-1 px-5 pb-3 pt-3 text-sm">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `rounded px-3 py-1.5 ${
+                `rounded-lg px-3 py-1.5 transition-colors ${
                   isActive
                     ? 'bg-[var(--color-garrigue)] text-white'
-                    : 'text-[var(--color-text)] hover:bg-[var(--color-stone)]'
+                    : 'text-[var(--color-text)] hover:bg-[var(--color-stone-dark)]'
                 }`
               }
             >
@@ -58,7 +59,7 @@ export default function Layout() {
           ))}
         </nav>
       </header>
-      <main className="mx-auto max-w-7xl px-4 py-6">
+      <main className="mx-auto max-w-7xl px-5 py-8">
         <Outlet />
       </main>
     </div>

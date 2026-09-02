@@ -1,4 +1,5 @@
 import * as XLSX from 'xlsx'
+import { convivesForMeal } from '../../lib/meals'
 import type { Guest, WeddingData } from '../../types'
 import { getCellValue, type GuestColumn } from './columns'
 
@@ -23,20 +24,11 @@ export function exportGuestsXlsx(guests: Guest[], columns: GuestColumn[]) {
   XLSX.writeFile(wb, 'invites.xlsx')
 }
 
-const MEAL_TO_GUEST_KEY: Record<string, keyof Guest> = {
-  'Samedi midi': 'samediMidi',
-  'Samedi soir': 'samediSoir',
-  'Dimanche brunch': 'dimancheBrunch',
-  'Dimanche soir': 'dimancheSoir',
-  'Lundi midi': 'lundiMidi',
-}
-
 export function exportEffectifsTraiteur(data: WeddingData) {
   const wb = XLSX.utils.book_new()
 
   for (const meal of data.meals) {
-    const key = MEAL_TO_GUEST_KEY[meal.nom]
-    const convives = key ? data.guests.filter((g) => Boolean(g[key])) : []
+    const convives = convivesForMeal(meal, data.guests)
     const rows = convives.map((g) => ({
       Prénom: g.prenom,
       Nom: g.nom,

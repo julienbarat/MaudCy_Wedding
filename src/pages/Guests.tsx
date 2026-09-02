@@ -1,4 +1,5 @@
 import { Fragment, useMemo, useState } from 'react'
+import { Button, Card, PageHeader, Select, TextInput } from '../components/ui'
 import { useWeddingData } from '../data/DataContext'
 import { newId } from '../data/newId'
 import { normalizeSearch } from '../lib/slug'
@@ -87,87 +88,70 @@ export default function Guests() {
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-2xl">Invités</h2>
-        <div className="flex flex-wrap gap-2 text-sm">
-          <button type="button" onClick={ajouterInvite} className="rounded bg-[var(--color-garrigue)] px-3 py-1.5 text-white hover:bg-[var(--color-garrigue-dark)]">
-            + Ajouter un invité
-          </button>
-          <button type="button" onClick={() => setShowColumns(true)} className="rounded border border-[var(--color-border)] px-3 py-1.5 hover:bg-white">
-            Colonnes
-          </button>
-          <button type="button" onClick={() => setShowImport(true)} className="rounded border border-[var(--color-border)] px-3 py-1.5 hover:bg-white">
-            Importer .xlsx
-          </button>
-          <button
-            type="button"
-            onClick={() => exportGuestsXlsx(filtered, columns)}
-            className="rounded border border-[var(--color-border)] px-3 py-1.5 hover:bg-white"
-          >
-            Exporter .xlsx
-          </button>
-          <button
-            type="button"
-            onClick={() => exportEffectifsTraiteur(data)}
-            className="rounded border border-[var(--color-border)] px-3 py-1.5 hover:bg-white"
-          >
-            Effectifs traiteur
-          </button>
-        </div>
-      </div>
+      <PageHeader
+        title="Invités"
+        actions={
+          <>
+            <Button variant="primary" onClick={ajouterInvite}>+ Ajouter un invité</Button>
+            <Button variant="secondary" onClick={() => setShowColumns(true)}>Colonnes</Button>
+            <Button variant="secondary" onClick={() => setShowImport(true)}>Importer .xlsx</Button>
+            <Button variant="secondary" onClick={() => exportGuestsXlsx(filtered, columns)}>Exporter .xlsx</Button>
+            <Button variant="secondary" onClick={() => exportEffectifsTraiteur(data)}>Effectifs traiteur</Button>
+          </>
+        }
+      />
 
-      <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
-        <input
+      <Card className="mb-4 flex flex-wrap items-center gap-2 p-4 text-sm">
+        <TextInput
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Rechercher un nom, prénom, foyer…"
-          className="rounded border border-[var(--color-border)] px-2 py-1.5"
         />
-        <select value={filterCategorie} onChange={(e) => setFilterCategorie(e.target.value)} className="rounded border border-[var(--color-border)] px-2 py-1.5">
+        <Select value={filterCategorie} onChange={(e) => setFilterCategorie(e.target.value)}>
           <option value="">Toutes catégories</option>
           {CATEGORIE_OPTIONS.map((c) => (
             <option key={c} value={c}>
               {c}
             </option>
           ))}
-        </select>
-        <select value={filterStatut} onChange={(e) => setFilterStatut(e.target.value)} className="rounded border border-[var(--color-border)] px-2 py-1.5">
+        </Select>
+        <Select value={filterStatut} onChange={(e) => setFilterStatut(e.target.value)}>
           <option value="">Tous statuts</option>
           {STATUT_OPTIONS.map((s) => (
             <option key={s} value={s}>
               {s}
             </option>
           ))}
-        </select>
-        <select value={filterRepas} onChange={(e) => setFilterRepas(e.target.value)} className="rounded border border-[var(--color-border)] px-2 py-1.5">
+        </Select>
+        <Select value={filterRepas} onChange={(e) => setFilterRepas(e.target.value)}>
           <option value="">Tous les repas</option>
           {REPAS_FILTRES.map(([key, label]) => (
             <option key={key} value={key}>
               {label}
             </option>
           ))}
-        </select>
-        <select value={filterNuit} onChange={(e) => setFilterNuit(e.target.value)} className="rounded border border-[var(--color-border)] px-2 py-1.5">
+        </Select>
+        <Select value={filterNuit} onChange={(e) => setFilterNuit(e.target.value)}>
           <option value="">Toutes les nuits</option>
           {NUITS_FILTRES.map(([key, label]) => (
             <option key={key} value={key}>
               {label}
             </option>
           ))}
-        </select>
+        </Select>
         <label className="flex items-center gap-1.5">
           <input type="checkbox" checked={groupByFoyer} onChange={(e) => setGroupByFoyer(e.target.checked)} />
           Vue groupée par foyer
         </label>
-        <span className="text-[var(--color-text)]">
+        <span className="text-[var(--color-text-soft)]">
           {filtered.length} / {data.guests.length} invité(s)
         </span>
-      </div>
+      </Card>
 
-      <div className="mt-4 overflow-x-auto rounded border border-[var(--color-border)] bg-white">
+      <div className="overflow-x-auto rounded-xl border border-[var(--color-border-soft)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-[var(--color-border)] bg-[var(--color-stone-dark)] text-left">
+            <tr className="border-b border-[var(--color-border-soft)] bg-[var(--color-stone)] text-left">
               {columns.map((c) => (
                 <th key={c.key} className="whitespace-nowrap px-2 py-1.5 font-normal">
                   {c.label}
@@ -180,21 +164,21 @@ export default function Guests() {
             {groups.map((group) => (
               <Fragment key={group.foyer ?? 'flat'}>
                 {group.foyer && (
-                  <tr key={`h-${group.foyer}`} className="bg-[var(--color-stone)]">
-                    <td colSpan={columns.length + 1} className="px-2 py-1 text-xs font-medium">
+                  <tr key={`h-${group.foyer}`} className="bg-[var(--color-garrigue-soft)]">
+                    <td colSpan={columns.length + 1} className="px-2 py-1.5 text-xs font-medium text-[var(--color-garrigue-dark)]">
                       {group.foyer} — {group.guests.length}
                     </td>
                   </tr>
                 )}
                 {group.guests.map((g) => (
-                  <tr key={g.id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-stone)]/40">
+                  <tr key={g.id} className="border-b border-[var(--color-border-soft)] last:border-0 hover:bg-[var(--color-stone)]/60">
                     {columns.map((c) => (
                       <td key={c.key} className="px-1 py-0.5">
                         <GuestCell column={c} value={getCellValue(g, c)} onChange={(v) => updateGuest(g.id, setCellValue(g, c, v))} />
                       </td>
                     ))}
                     <td className="whitespace-nowrap px-2 py-0.5 text-xs">
-                      <button type="button" onClick={() => dupliquer(g)} className="mr-2 underline">
+                      <button type="button" onClick={() => dupliquer(g)} className="mr-2 text-[var(--color-text-soft)] underline">
                         Dupliquer
                       </button>
                       <button type="button" onClick={() => supprimer(g)} className="text-[var(--color-vine)] underline">

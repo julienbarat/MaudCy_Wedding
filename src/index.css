@@ -1,18 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  --color-stone: #f5f2ea;
-  --color-stone-dark: #e8e2d2;
-  --color-ink: #262a22;
-  --color-text: #4a5142;
+  --color-stone: #f6f3ea;
+  --color-stone-dark: #ece5d1;
+  --color-paper: #fffdf8;
+  --color-ink: #2a2e22;
+  --color-text: #565c4a;
+  --color-text-soft: #7a7f6c;
   --color-garrigue: #4b5d3a;
   --color-garrigue-dark: #37472a;
+  --color-garrigue-soft: #eef1e6;
   --color-river: #5c7a78;
-  --color-vine: #7a3b3b;
-  --color-border: #ddd6c3;
+  --color-vine: #8a3f3f;
+  --color-vine-soft: #f6ebe9;
+  --color-border: #ddd3ba;
+  --color-border-soft: #e9e2cf;
+  --shadow-card: 0 1px 2px rgba(42, 46, 34, 0.06), 0 1px 8px rgba(42, 46, 34, 0.05);
 
-  --font-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', serif;
-  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 
   color-scheme: light;
   color: var(--color-text);
@@ -26,10 +33,19 @@
 body {
   margin: 0;
   font-family: var(--font-sans);
+  background:
+    radial-gradient(1200px 500px at 15% -10%, rgba(75, 93, 58, 0.06), transparent),
+    var(--color-stone);
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
   font-family: var(--font-serif);
   color: var(--color-ink);
   font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-garrigue-soft);
 }

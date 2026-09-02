@@ -118,7 +118,7 @@ export default function ImportDialog({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/30 p-4">
-      <div className="max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded bg-white p-5 shadow-lg">
+      <div className="max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-[var(--color-paper)] p-5 shadow-lg">
         <div className="flex items-center justify-between">
           <h2 className="text-lg">Importer un fichier Excel</h2>
           <button type="button" onClick={onClose} className="text-sm underline">
@@ -177,7 +177,7 @@ export default function ImportDialog({ onClose }: { onClose: () => void }) {
             <button
               type="button"
               onClick={importer}
-              className="mt-4 rounded bg-[var(--color-garrigue)] px-3 py-1.5 text-sm text-white hover:bg-[var(--color-garrigue-dark)]"
+              className="mt-4 rounded-lg bg-[var(--color-garrigue)] px-3 py-1.5 text-sm text-white hover:bg-[var(--color-garrigue-dark)]"
             >
               Importer
             </button>
@@ -190,7 +190,7 @@ export default function ImportDialog({ onClose }: { onClose: () => void }) {
             <button
               type="button"
               onClick={onClose}
-              className="mt-3 rounded bg-[var(--color-garrigue)] px-3 py-1.5 text-sm text-white hover:bg-[var(--color-garrigue-dark)]"
+              className="mt-3 rounded-lg bg-[var(--color-garrigue)] px-3 py-1.5 text-sm text-white hover:bg-[var(--color-garrigue-dark)]"
             >
               Terminé
             </button>
