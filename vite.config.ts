@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin } from 'vite'
 
-const DATA_FILE = path.resolve(__dirname, 'data/wedding-data.json')
+const DATA_FILE = path.resolve(import.meta.dirname, 'data/wedding-data.json')
 
 // Sert /api/data en dev en lisant/écrivant data/wedding-data.json,
 // pour correspondre à l'interface unique loadData()/saveData() (voir src/data/client.ts).

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Notre mariage</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f6f3ea;
+        font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+        color: #565c4a;
+      }
+      form {
+        background: #fffdf8;
+        border: 1px solid #ddd3ba;
+        border-radius: 12px;
+        box-shadow: 0 1px 8px rgba(42, 46, 34, 0.08);
+        padding: 32px;
+        width: 280px;
+      }
+      h1 {
+        margin: 0 0 16px;
+        font-size: 22px;
+        color: #2a2e22;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 10px;
+        border: 1px solid #ddd3ba;
+        border-radius: 8px;
+        font-size: 15px;
+      }
+      button {
+        margin-top: 12px;
+        width: 100%;
+        padding: 9px;
+        border: none;
+        border-radius: 8px;
+        background: #4b5d3a;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #37472a;
+      }
+      p.erreur {
+        color: #8a3f3f;
+        font-size: 14px;
+        margin: 10px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <h1>Notre mariage</h1>
+      <input type="password" id="password" placeholder="Mot de passe" autofocus />
+      <button type="submit">Entrer</button>
+      <p class="erreur" id="erreur" hidden>Mot de passe incorrect.</p>
+    </form>
+    <script>
+      const form = document.getElementById('form')
+      const erreur = document.getElementById('erreur')
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        erreur.hidden = true
+        const password = document.getElementById('password').value
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        })
+        if (res.ok) {
+          window.location.href = '/'
+        } else {
+          erreur.hidden = false
+        }
+      })
+    </script>
+  </body>
+</html>
