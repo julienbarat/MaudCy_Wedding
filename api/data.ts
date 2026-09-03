@@ -1,25 +1,24 @@
-import { put, head } from '@vercel/blob'
+import { put, get } from '@vercel/blob'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 const BLOB_PATHNAME = 'wedding-data.json'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'GET') {
-    try {
-      const blob = await head(BLOB_PATHNAME)
-      const fileRes = await fetch(blob.url)
-      const data = await fileRes.json()
-      res.status(200).json(data)
-    } catch {
+    const result = await get(BLOB_PATHNAME, { access: 'private' })
+    if (result?.statusCode !== 200) {
       res.status(404).json({ error: 'Aucune donnée enregistrée pour le moment.' })
+      return
     }
+    const data = await new Response(result.stream).json()
+    res.status(200).json(data)
     return
   }
 
   if (req.method === 'PUT') {
     const body = req.body
     await put(BLOB_PATHNAME, JSON.stringify(body, null, 2), {
-      access: 'public',
+      access: 'private',
       contentType: 'application/json',
       addRandomSuffix: false,
       allowOverwrite: true,
