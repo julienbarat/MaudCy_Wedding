@@ -158,6 +158,11 @@ Pré-remplir avec ces lieux (fourchettes de prix estimées, pas des tarifs commu
 8. **Domaine d'Anglas**, Brissac, 50 min, camping, capacité à vérifier, bord de rivière, 4 000–8 000 €, 04 67 73 70 18, domaine-anglas.com (l'ancien site camping-anglas.com ne répond plus)
 9. **Domaine de Blancardy**, Moulès-et-Baucels, 55 min, mas, capacité à vérifier, pas d'eau directe, 5 000–9 000 €, 04 67 73 94 94, blancardy.fr
 10. **Château de Linsolas**, Villeneuve-lès-Avignon (Gard), 70 min, domaine, 150 assis (un peu juste pour 180), 46 couchages, piscine chauffée, 4 500–9 000 €, chateau-de-linsolas.fr — le plus cher, à garder en solution de repli
+11. **Mas de Baumes**, mas, masdebaumes.com — suggéré par Maud, commune/distance/capacité/prix à vérifier à l'appel
+12. **Provence Pousterle**, domaine, provence-pousterle.com — suggéré par Maud, commune/distance/capacité/prix à vérifier à l'appel
+13. **Mas Nouveau**, mas, masnouveau.com — suggéré par Maud, commune/distance/capacité/prix à vérifier à l'appel
+14. **Isis en Cévennes**, domaine, isisencevennes.fr — suggéré par Maud, commune/distance/capacité/prix à vérifier à l'appel
+15. **Les Bords de Cèze**, domaine, bord de rivière (la Cèze), lesbordsdeceze.com — commune exacte/distance/capacité/prix à vérifier à l'appel
 
 ### Repas
 
